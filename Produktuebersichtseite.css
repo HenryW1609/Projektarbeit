@@ -1,0 +1,268 @@
+
+h1 {
+    float:left;
+    margin: 3vh;
+    color: white;}
+
+p {
+    float:left;
+    margin: 3vh;
+    color: #40854F;
+    font-family: 'Roboto', sans-serif;font-size: 18px;
+    line-height: 23px;
+    font-style: bold;}
+
+form {
+  height: 50%;
+  background-color: white;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+    }
+
+input {
+  width: 200px;
+  height: 50px;}
+
+select {
+  width: 500px;
+  height: 50px;}
+
+.filterleiste {
+  background-image: url(Bilder/Produktuebersichtseite/hintergrund.png);
+  width: 100%;
+  height: 800px;}
+
+.filter_box_umriss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh;
+    width: 50%;
+    height:700px;}
+
+/* Grüne Umrissbox für die gesamte Filterleiste erstellen */
+
+.filter_box {
+  background-color: #40854F;
+  opacity: 0.8;
+  width: 80%;
+  height: 90%;
+  margin-top: 90px;
+  border-radius: 10px;
+  float: left;
+  text-align: center;}
+
+/* Hilfsbox für den Orts- / Zeit- Filter um das Design mit den Icons zu ermöglichen */
+
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65px;}
+
+/* Icon vor dem Ortsfilter (links) */
+.ortsfilter_left{
+  background-image: url(Bilder/Produktuebersichtseite/icon5_ort.png);
+  width: 10%;
+  height: 65px;
+  margin: 0 auto;;
+  float: left;}
+
+/* Ortsfilter (rechts) */
+.ortsfilter_right{
+  background-color: #40854F;
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  float: left;}
+
+/* Icon vor dem Kalenderfilter (links) */
+.kalender_left{
+  background-image: url(Bilder/Produktuebersichtseite/icon6_kalender.png);
+  width: 8.5%;
+  height: 50px;
+  margin: 0 auto;
+  float: left;}
+
+.kalender_right{
+  background-color: #40854F;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;}
+
+/* Eingabefelder fuer Datum */
+
+.kalender_startdatum {
+    background-color: #40854F;
+    font-family: 'Roboto', sans-serif;font-size: 20px;
+    text-align: center;}
+
+.bis{
+  width:15%;
+  height: 50px;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
+.kalender_enddatum {
+  background-color: #40854F;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  text-align: center;}
+
+/* Hilfslinie zur optischen Abtrennung innerhalb des Filterkastens */
+.linie{
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid white;}
+
+/* Auto Typ Filtern */
+
+  .icons_modelle_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:10vh;}
+
+  .text_modelle_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:2vh;}
+
+  .icons_modelle {
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+    height:7vh;
+    width:100%;
+    background-color: #40854F;
+    border-radius: 20px;}
+
+  .text_modelle {
+    height:2vh;
+    width:100%;
+    background-color: #40854F;
+    color: black;
+    float: right;
+    text-align: center;}
+
+/* Filterboxen zum Anklicken */
+
+.allgemeine_filter_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 1;
+  height:5vh;}
+
+.filter_inhalt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:5vh;
+  width:40%;
+  margin: 5vh;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  float: right;
+  opacity: 1;
+  text-align: center;}
+
+.pfeil {
+  background-image: url(Bilder/Produktuebersichtseite/icon7_pfeil.png);
+  opacity: 1;
+  height:50px;
+  width:20%;}
+
+/* Filterboxen Ueberschriften */
+
+.ueberschrift_filter_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3vh;}
+
+.text_filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:1vh;
+  width:40%;
+  margin: 5vh;
+  color: #FFFFFF;
+  float: right;
+  text-align: center;}
+
+.angebote {
+  width: 40%;
+  height:5vH;
+  color: white;
+  background-color: #214429;
+  border: 1px solid black;
+  float:left;}
+
+/* Alle Automodelle aufgelistet */
+
+.abstandhalter {
+  background-color: #40854F;
+  opacity: 0.8;
+  width: 100%;
+  height: 5px;
+}
+
+.abstandhalter2 {
+  background-color: #40854F;
+  opacity: 0.8;
+  width: 100%;
+  height: 10px;
+}
+
+.filter {
+  width: 40%;
+  height:50px;
+  color: white;
+  background-color: #214429;
+  border: 1px solid black;
+  float:left;}
+
+/* Alle Automodelle aufgelistet */
+
+.erster_Paragraph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:50vh;}
+
+.autos {
+  height:45vh;
+  width:20%;
+  margin: 3vh;
+  background-color: #D9D9D9;
+  color:grey ;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color: white;
+  border-style: solid;
+  float: right;
+  text-align: center;}
