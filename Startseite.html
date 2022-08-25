@@ -1,24 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="Startseite.css">
-
+  <link rel="stylesheet" href="Startseite.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
   <body>
-    <div class="navbar">Header</div>
-
-    <div class="content">
-    <div class="ort">Ort</div>
-    <div class="zeitraum">Zeitraum</div>
-    <div class="angebot">Angebote</div>
-
+    <div id="navbar">
+      <a href="Startseite.html" id="logo">Out & About</a>
+      <div id="navbar-right">
+        <a href="Automodelle.html">Cars</a>
+        <a href="haha">Cities</a>
+        <a href="Meine_Buchungen.html">Meine Buchungen</a>
+        <a href="login" class="icon" ><img src="Bilder/Icon-Login.png"></a>
+      </div>
     </div>
 
-    <div class="footer">Footer</div>
+    <div class="content">
+      <div class="background">
+        <div class="slogan">Pick yours<br>and get out there</div>
+        <div class="box1">Lorem ipsum</div>
+        <div class="box2">Lorem ipsum</div>
+        <div class="box3">Lorem ipsum</div>
+        <div class="box4">Lorem ipsum</div>
+      </div>
+      <div class="angebot">
+        </div>
+    <div class="slideshow-background">
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+            <a href ="#" class="firstslide"><img src="Bilder/Automodelle/SUV.png"></a>
+            <a href="#" class="secondslide"><img src="Bilder/Automodelle/Transporter.png"></a>
+            <a href="#" class="thirdslide"><img src="Bilder/Automodelle/Cabrios.png"></a>
+          <div class="text">SUVs</div><div class="text2">Transporter</div><div class="text3">Cabrios</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="https://media.gq-magazin.de/photos/6284c282a3d4ee15ec93c431/16:9/w_2560%2Cc_limit/Auto-BMW-3er-Facelift.jpeg"
+            class="secondslide">
+          <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="img_mountains_wide.jpg" class="thirdslide">
+          <div class="text">Caption Three</div>
+        </div>
+
+
+        <a class="prev" onclick="plusSlides(-1)"><</a>
+        <a class="next" onclick="plusSlides(1)">></a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="footer">
+      <div class="socials">Our Socials</div>
+        <a href="haha"><img src="Bilder/Footer/Instagram.png" class="instagram"></a>
+        <a href="haha"><img src="Bilder/Footer/icons8-facebook-25.png" class="facebook"></a>
+        <a href="haha"><img src="Bilder/Footer/icons8-twitter-24.png" class="twitter"></a>
+      <div class="AGB"><a href="haha">AGB</a>   |   <a href="haha">Impressum</a>   |   <a href="haha">Datenschutz</a></div>
+    </div>
 
 
 
+  <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
 
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+      {window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("navbar").style.padding = "30px 10px";
+        document.getElementById("logo").style.fontSize = "25px";
+      } else {
+        document.getElementById("navbar").style.padding = "80px 10px";
+        document.getElementById("logo").style.fontSize = "35px";
+      }
+    }
+  }
+    </script>
 
   </body>
 </html>
