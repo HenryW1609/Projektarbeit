@@ -54,12 +54,11 @@
 /*Framework*/
 
 .head {width: 100%; height:150px; border: 1px solid black;}
-.content {width: 100%; height:2800px; border: 1px solid black;}
+.content {width: 100%; height:3150px; border: 1px solid black;}
 .footer {width: 100%; height:300px; border: 1px solid black;position: relative;background-color: #40854F;}
 
 /*DIV Settings*/
 
-.angebot {width:100%;height:600px;float: left;background-color: white;position: }
 .AGB {width: 100%; height: 100px;float: left;text-align: center;position: absolute;top: 70%;}
       .AGB a {text-decoration: none;color: black;}
       .AGB a:hover {color: white;}
@@ -98,7 +97,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {width: 70%;position: absolute;margin-left: 20%;}
-.slideshow-background {width: 90%;height: 350px;position: relative;background-color:white;
+.slideshow-background {width: 90%;height: 390px;position: relative;background-color:white;
   margin-left: 10%;top: 2%}
 /* Next & previous buttons */
 .prev, .next {cursor: pointer;position: absolute;width: auto;padding: 16px;color: white;font-weight: bold;
@@ -125,3 +124,13 @@ img {vertical-align: middle;}
 @keyframes fade {from {opacity: .4}to {opacity: 1}}
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {.prev, .next,.text {font-size: 11px}}
+
+.werbung_background {width: 100%; height: 550px;border: 1px solid black;position: relative;background-color:#D9D9D9;
+          top: 2%;color: white;}
+.werbung {width:55%; height:509px;border: 3px solid white;margin: 2%;margin-left: 3.5%;margin-top: 1.55%;
+          background-color: rgba(64, 133, 79, 0.8);padding: 5%;font-size: 30px;line-height: 35px;
+          text-align: center;border-radius: 15px;}
+  .werbung_image {width:40%;height:500px;position: absolute;margin-left: 57.5%;top:4%;}
+.map_background {width:100%;height:1000px;position: relative;}
+.map_title {font-size: 46px;width:100%;height:200px;font-family: 'Lobster', cursive;position: absolute;
+            top:12%;text-align: center;}
