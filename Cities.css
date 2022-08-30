@@ -1,0 +1,122 @@
+
+/* Schriftarten anpassen */
+/* Ueberschriften */
+h1 {
+  color: black;
+  font-family: 'Roboto', sans-serif;font-size: 36px;
+  font-style: bold;}
+
+/* Normaler Text */
+p {
+  color: black;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;}
+
+.links{
+  color: #40854F;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;}
+
+
+/* DIV BOXEN*/
+/* Oberstes Bild der Seite als Aufmacher */
+.aufmacher{
+  background-image: url(Bilder/Cities/hintergrund.png);
+  width: 100%;
+  height:300px;}
+
+/* Klassen in Bezug auf den Staedte-Filter */
+.staedte_filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 60px;}
+
+.hilfsbox1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  height: 60px;}
+
+/* Lupen Icon */
+.lupe{
+  background-image: url(Bilder/Cities/icon_lupe.png);
+  background-color: white;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3%;
+  height:40px;
+  margin: auto;}
+
+/* Eingabe-Feld*/
+.eingabe_feld{
+  width: 80%;
+  height:40px;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  color: #40854F;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-bottom:2px solid #40854F;
+  margin: auto;}
+
+/* Suchen-Button */
+.suchen_button{
+  background-color: #40854F;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height:40px;
+  border-radius: 10px;
+  margin: auto;}
+
+/* Auflistung der Staedte, abwechselnder Hintergrund aus weiß & gruen */
+.absatz_weiß{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height:320px;}
+
+.absatz_gruen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #C3DEBA;
+  width: 100%;
+  height:320px;}
+
+/* Unterteilung in Bild & Text zur Stadt */
+
+.hilfskasten{
+  width: 100%;
+  height:250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
+.box{
+  width: 45%;
+  height:250px;
+  color: black;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;}
