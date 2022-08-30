@@ -36,12 +36,19 @@
               <option value="Muenchen">M&uumlnchen</option>
               <option value="Nuernberg">N&uumlrnberg</option>
               <option value="Paderborn">Paderborn</option>
-              <option value="Rohstock">Rohstock</option>
+              <option value="Rohstock">Rostock</option>
             </select>
           <hr class="line">
           </div>
-          <div class="filter_time"><h4 class="filter_city_title">Wann geht's los?</h4>
+          <div class="filter_time"><h4 class="filter_city_title">Abholdatum/R&uumlckgabedtaum</h4>
             <img src="Bilder/Homepage/calendar1.png" class="filter_time_img">
+            <div class="starttime">
+              <input type="date" name="Abholdatum" value="">
+            </div>
+            <div class="vl">/</div>
+              <div class="endtime">
+                <input type="date" name="Rückgabedtaum" value="">
+            </div>
 
             <hr class="line1">
           </div>
@@ -86,9 +93,10 @@
                       <div class="map_background">
                         <div class="map_title">Immer in deiner N&aumlhe</div>
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d151676.67775640206!2d9.78773917115821!3d53.55869411399034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b161837e1813b9%3A0x4263df27bd63aa0!2sHamburg!5e0!3m2!1sde!2sde!4v1661765236200!5m2!1sde!2sde"
+                        <iframe src="https://www.google.com/maps/d/embed?mid=13gLTaGbR1bKKek_wdXnqPLC9L7pWiSA&ehbc=2E312F"
                         class="maps" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                       </div>
+
 
     </div>
   </div>
@@ -147,18 +155,6 @@
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
       }
-      {window.onscroll = function() {scrollFunction()};
-
-      function scrollFunction() {
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("navbar").style.padding = "30px 10px";
-        document.getElementById("logo").style.fontSize = "25px";
-      } else {
-        document.getElementById("navbar").style.padding = "80px 10px";
-        document.getElementById("logo").style.fontSize = "35px";
-      }
-    }
-  }
     </script>
 
   </body>
