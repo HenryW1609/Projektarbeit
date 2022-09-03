@@ -1,0 +1,59 @@
+.content2 {
+  width:100%;
+  height:650px;
+}
+.filter_back {
+  width:90%;
+  height: 580px;
+  background-color: #40854F;
+  margin: 5%;
+  margin-top: 4.5%;
+  border-radius: 15px;
+  position: relative;
+}
+.filter_front {
+  width:35%;
+  height:480px;
+  background-color: white;
+  opacity: 0.2;
+  border-radius: 15px;
+  position: relative;
+  left:3%;
+  top:11%;
+}
+.auswählen a{
+  width:20%;
+  height:100px;
+  background-color: white;
+  border-radius: 15px;
+  position: absolute;
+  right: 15%;
+  top:77%;
+  color: #40854F;
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  line-height: 100px;
+  text-decoration: none;
+}
+.auswählen a:hover {
+  color: black;
+}
+.vertical {
+  border: 1px solid white;
+  transform: rotate(90deg);
+  width:210px;
+  position: absolute;
+  left:13%;
+  top:70%;
+}
+.kalender {
+  position:absolute;
+  left: 5.5%;
+  top: 15%;
+}
+.marker {
+  position: absolute;
+  left:5.5%;
+  top:28%;
+}

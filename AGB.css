@@ -1,0 +1,247 @@
+/*Navigationsleiste*/
+#navbar {
+    overflow: hidden;
+    background-color: #40854F;
+    padding: 25px 10px;
+    transition: 0.4s;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+  }
+  #navbar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  #navbar #logo {
+    font-size: 34px;
+    font-weight: bold;
+    transition: 0.4s;
+    font-weight: 400;
+    font-family: 'Lobster', cursive;
+  }
+  #navbar a:hover {
+    color: black;
+  }
+  #navbar-right {
+    float: right;
+    margin-right: 4%;
+  }
+/*Framework*/
+.content2 {
+  width:100%;
+  height:1400px;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  color: #214429;
+  font-weight: 600;
+  position: absolute;
+  top: 99%;
+}
+/*Content*/
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  color: #214429;
+  text-align: center;
+}
+.allgemein {
+  width:40%;
+  height:700px;
+  border: 3px solid #40854F;
+  margin:5%;
+  margin-top: 0;
+  border-radius: 20px;
+  float: left;
+  padding: 30px;
+  font-size: 30px;
+  color: #214429;
+  font-weight: 600;
+}
+.richtlinien {
+  width:40%;
+  height:700px;
+  border: 3px solid #40854F;
+  margin:5%;
+  margin-top: 0;
+  border-radius: 20px;
+  float: left;
+  padding: 30px;
+  font-size: 30px;
+  color: #214429;
+  font-weight: 600;
+}
+/*Footer*/
+  .oft_besucht {
+    width:20%;
+    height:200px;
+    float: left;
+    color: white;
+    position: absolute;
+    top:10%;
+    left: 2%;
+    text-decoration: underline;
+  }
+    .footer_startseite a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 35%;
+      left:2.2%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_startseite a:hover{
+        color: black;
+      }
+    .footer_cars a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top:45%;
+      left:2.2%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_cars a:hover{
+        color: black;
+      }
+    .footer_cities a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 55%;
+      left:2.2%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_cities a:hover{
+        color: black;
+      }
+  .legal {
+    width:20%;
+    height:200px;
+    float: left;
+    color: white;
+    position: absolute;
+    top:10%;
+    left: 16%;
+    text-decoration: underline;
+  }
+    .footer_datenschutz a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 38%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_datenschutz a:hover {
+        color: black;
+      }
+    .footer_agb a{
+      width:50%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 53%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_agb a:hover {
+        color: black;
+      }
+    .footer_impressum a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 67.5%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_impressum a:hover {
+        color: black;
+      }
+  .about {
+    width:20%;
+    height:200px;
+    float: left;
+    color: white;
+    position: absolute;
+    top:10%;
+    left: 28%;
+    text-decoration: underline;
+  }
+    .footer_team a{
+      width:10%;
+      height:25px;
+      color: white;
+      position: absolute;
+      top: 35%;
+      left:28%;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      text-decoration: none;
+    }
+      .footer_team a:hover {
+        color: black;
+      }
+  .copyright {
+    width: 20%;
+    position: absolute;
+    top: 82.5%;
+    left:79%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+  }
+  .instagram {
+    width: 32px;
+    height: 30px;
+    display: block;
+    position:absolute;
+    top: 80.5%;
+    right:2%;
+  }
+  .facebook {
+    width: 38px;
+    height: 32px;
+    display: block;
+    position:absolute;
+    top: 80%;
+    right:5%;
+  }
+  .twitter {
+    width: 32px;
+    display: block;
+    position:absolute;
+    top: 81%;
+    right:8.5%;
+  }

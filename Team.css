@@ -1,0 +1,29 @@
+/*Framework*/
+.content5 {
+  height: 1600px;
+}
+h5 {
+  font-size: 26px;
+  padding: 50px;
+  padding-left: 70px;
+}
+p {
+  padding: 20px;
+  padding-left: 70px;
+  padding-top: 0;
+  font-size: 20px;
+  text-align: justify;
+}
+input {
+  margin: 15%;
+  margin-top: 10%;
+  box-sizing: border-box;
+  flex: 1;
+  user-select: none;
+  cursor: pointer;
+}
+.wir {
+  height:800px;
+  background-color: #40854F;
+  margin-top: 8%;
+}
