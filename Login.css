@@ -1,0 +1,103 @@
+
+
+/* Schriftarten*/
+h1{
+  color: white;
+  font-family: 'Aboreto', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-size: 38px;}
+
+
+form {
+  height: 14%;
+  width: 100%;}
+
+::placeholder {
+  opacity: 0.5;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;}
+
+/* DIV BOXEN*/
+/* gesamter Contentbereich */
+
+.hilfsbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:690px;}
+
+.hilfsbox2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94%;
+  height:650px;}
+
+.halbiert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 690px;
+  height: 650px;}
+
+.content_box{
+  width: 70%;
+  height:80%;
+}
+
+.login_icon{
+  width: 40px;
+  height: 55px;
+}
+
+.login_text{
+  width: 100%;
+  height: 14%;}
+
+.button {
+  border: white 2px solid;
+  width: 100%;
+  height: 14%;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 25px;
+  display: flex;
+  align-items: center;
+  background-color: #40854F;
+  border-bottom-left-radius: 30px;
+  padding-left: 10px;}
+
+.button:hover {
+  background-color: #214429;
+  color: white;
+  text-decoration: none;
+  border: white 2px solid;}
+
+.eingabe {
+  background-color: #214429;
+  border: white 2px solid;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;}
+
+/* Drei Buttons fuer zurueck zum Login / Angebote durschsuchen / Newletter anmelden*/
+
+
+/* Linie fuer optimische Trennung*/
+.linie{
+  background-color: white;
+  width: 60%;
+  height: 1px;
+}
+
+/* Boder für Kontrolle*/
+/*   border: black 2px solid;*/
