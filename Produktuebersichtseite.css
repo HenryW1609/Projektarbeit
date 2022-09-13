@@ -11,35 +11,16 @@ p {
     line-height: 23px;
     font-style: bold;}
 
-form {
-  height: 50%;
-  background-color: white;
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-    }
-
-input {
-  width: 200px;
-  height: 50px;
-  border: no border}
-
-select {
-  width: 500px;
-  height: 50px;}
 
 .filterleiste {
   background-image: url(Bilder/Produktuebersichtseite/hintergrund.png);
   width: 100%;
-  height: 800px;}
+  height: 780px;}
 
 .filter_box_umriss{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 3vh;
     width: 50%;
     height:700px;}
 
@@ -47,10 +28,8 @@ select {
 
 .filter_box {
   background-color: #40854F;
-  opacity: 0.8;
   width: 80%;
-  height: 90%;
-  margin-top: 90px;
+  height: 92%;
   border-radius: 10px;
   float: left;
   text-align: center;}
@@ -69,22 +48,21 @@ select {
   background-image: url(Bilder/Produktuebersichtseite/icon5_ort.png);
   width: 10%;
   height: 65px;
-  margin: 0 auto;;
+  margin: auto;
   float: left;}
 
 /* Ortsfilter (rechts) */
 .ortsfilter_right{
-  background-color: #40854F;
+  background-color: white;
   opacity: 1;
-  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-family: 'Roboto', sans-serif;font-size: 15px;
   width: 80%;
   height: 50px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  float: left;}
+  margin: auto;
+  }
 
 /* Icon vor dem Kalenderfilter (links) */
+
 .kalender_left{
   background-image: url(Bilder/Produktuebersichtseite/icon6_kalender.png);
   width: 8.5%;
@@ -94,36 +72,38 @@ select {
 
 .kalender_right{
   background-color: #40854F;
-  border-radius: 10px;
   font-family: 'Roboto', sans-serif;font-size: 20px;
   width: 80%;
   height: 50px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  float: left;}
+  align-items: center;}
 
 /* Eingabefelder fuer Datum */
 
 .kalender_startdatum {
-    background-color: #40854F;
-    font-family: 'Roboto', sans-serif;font-size: 20px;
-    text-align: center;}
+  background-color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  width: 40%;
+  height: 50px;}
 
 .bis{
-  width:15%;
+  width:10%;
   height: 50px;
   font-family: 'Roboto', sans-serif;font-size: 20px;
   color: white;
+  margin: auto;
   display: flex;
   justify-content: center;
-  align-items: center;}
+  align-items: center;
+  float: left;}
 
 .kalender_enddatum {
-  background-color: #40854F;
+  background-color: white;
   font-family: 'Roboto', sans-serif;font-size: 20px;
-  text-align: center;}
+  height: 50px;
+  width: 40%;}
 
 /* Hilfslinie zur optischen Abtrennung innerhalb des Filterkastens */
 .linie{
@@ -160,9 +140,22 @@ select {
     height:2vh;
     width:100%;
     background-color: #40854F;
-    color: black;
+    color: white;
     float: right;
     text-align: center;}
+
+  .c_box{
+    height:100%;
+    width:20%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .c_box:checked{
+    background: #214429;
+    border: 1px solid white;
+    }
 
 /* Filterboxen zum Anklicken */
 
@@ -172,26 +165,20 @@ select {
   align-items: center;
   width: 100%;
   opacity: 1;
-  height:5vh;}
+  height:4.1vh;}
 
 .filter_inhalt {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:5vh;
+  height:4.2vh;
   width:40%;
   margin: 5vh;
   border-radius: 20px;
   background-color: #FFFFFF;
   float: right;
-  opacity: 1;
-  text-align: center;}
-
-.pfeil {
-  background-image: url(Bilder/Produktuebersichtseite/icon7_pfeil.png);
-  opacity: 1;
-  height:50px;
-  width:20%;}
+  text-align: center;
+  font-family: 'Roboto', sans-serif;font-size: 15px;}
 
 /* Filterboxen Ueberschriften */
 
@@ -206,12 +193,29 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:1vh;
+  height:1vH;
   width:40%;
   margin: 5vh;
   color: #FFFFFF;
   float: right;
   text-align: center;}
+
+/* Dynamisches Element */
+  .dynamisches_Element {
+    width: 50%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;}
+
+#myDIV {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    background-color: white;
+    margin-top: 10px;
+    }
 
 /* GPS & Klimaanlage */
 
@@ -219,7 +223,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  height:5vh;
+  height:4vh;
   width:5%;
   margin: 5vh;
   font-family: 'Roboto', sans-serif;font-size: 20px;
@@ -236,7 +240,6 @@ select {
   float:left;}
 
 /* Umschalter bauen fuer GPS / KLIMA */
-
 
 .toggle {
   display: flex;
@@ -278,7 +281,6 @@ select {
     height: 26px;
     background: #40854F;
     border: white 2px solid;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     transition: transform 0.2s;
   }
@@ -292,24 +294,18 @@ select {
 /* Abstandhalter für optische Optimierung */
 
 .abstandhalter {
-  background-color: #40854F;
-  opacity: 0.8;
+  width: 100%;
+  height: 2px;
+}
+
+.abstandhalter2 {
   width: 100%;
   height: 5px;
 }
 
-.abstandhalter2 {
-  background-color: #40854F;
-  opacity: 0.8;
-  width: 100%;
-  height: 10px;
-}
-
 .abstandhalter3 {
-  background-color: #40854F;
-  opacity: 0.8;
   width: 100%;
-  height: 30px;
+  height: 25px;
 }
 
 .filter {
@@ -318,6 +314,19 @@ select {
   color: white;
   background-color: #214429;
   float:left;}
+
+.lets_go  {
+  width: 200px;
+  height: 40px;
+  float: left;
+  position: absolute;
+  top: 780px;
+  left: 300px;}
+
+.absenden {color: #FFA149;
+  background-color: none;
+  font-size: 30px;
+  background-color: transparent;}
 
 /* Alle Automodelle aufgelistet */
 

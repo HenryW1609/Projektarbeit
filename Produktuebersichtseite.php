@@ -1,14 +1,60 @@
 <!DOCTYPE html>
+
+<!-- Header-->
 <html>
 <head>
+
+  <!--  Stylesheet, Schriftarten &  Sonderzeichen laden-->
   <link rel="stylesheet" href="Startseite.css">
     <link rel="stylesheet" href="Produktuebersichtseite.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+
+  <!-- Datenbank Laden-->
+  <?php
+        include('_db_team.php');
+        $pdo = dbConnect(); ?>
+
 </head>
 
 <body>
+
+<!--  Alle Filteraspekte-->
+  <?php
+    $stadt = (isset($_REQUEST['stadt']) && !empty($_REQUEST['stadt'])) ? $_REQUEST['stadt'] : null;
+    $start = (isset($_REQUEST['start']) && !empty($_REQUEST['start'])) ? $_REQUEST['start'] : null;
+    $ende = (isset($_REQUEST['ende']) && !empty($_REQUEST['ende'])) ? $_REQUEST['ende'] : null;
+    $hersteller = (isset($_REQUEST['hersteller']) && !empty($_REQUEST['hersteller'])) ? $_REQUEST['hersteller'] : null;
+    $sitze = (isset($_REQUEST['sitze']) && !empty($_REQUEST['sitze'])) ? $_REQUEST['sitze'] : null;
+    $schaltung = (isset($_REQUEST['schaltung']) && !empty($_REQUEST['schaltung'])) ? $_REQUEST['schaltung'] : null;
+    $tueren = (isset($_REQUEST['tueren']) && !empty($_REQUEST['tueren'])) ? $_REQUEST['tueren'] : null;
+    $motor = (isset($_REQUEST['motor']) && !empty($_REQUEST['motor'])) ? $_REQUEST['motor'] : null;
+    $mindestalter = (isset($_REQUEST['mindestalter']) && !empty($_REQUEST['mindestalter'])) ? $_REQUEST['mindestalter'] : null;
+    $antrieb = (isset($_REQUEST['antrieb']) && !empty($_REQUEST['antrieb'])) ? $_REQUEST['antrieb'] : null;
+    $preis = (isset($_REQUEST['preis']) && !empty($_REQUEST['preis'])) ? $_REQUEST['preis'] : null;
+    $klima = (isset($_REQUEST['klima']) && !empty($_REQUEST['klima'])) ? $_REQUEST['klima'] : null;
+    $gps = (isset($_REQUEST['gps']) && !empty($_REQUEST['gps'])) ? $_REQUEST['gps'] : null;
+
+    $filter = [
+      'stadt' => $stadt,
+      'start' => $start,
+      'ende' => $ende,
+      'hersteller' => $hersteller,
+      'sitze' => $sitze,
+      'schaltung' => $schaltung,
+      'tueren' => $tueren,
+      'motor' => $motor,
+      'mindestalter' => $mindestalter,
+      'antrieb' => $antrieb,
+      'preis' => $preis,
+      'klima' => $klima,
+      'gps' => $gps
+    ];
+  ?>
+
+
     <div id="navbar">
       <a href="Startseite.html" id="logo">Out & About</a>
       <div id="navbar-right">
@@ -19,36 +65,35 @@
       </div>
     </div>
 
-    <div class="filterleiste">
 
-    <div class="abstandhalter3"></div>
+    <div class="filterleiste">
 
     <div class="filter_box_umriss">
 
     <div class="filter_box">
-      <br>
 
+    <div class="abstandhalter2"> </div>
+
+      <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
       <!-- Filter auf die Stadt mits Icon davor -->
       <div class="icons">
         <div class="ortsfilter_left"> </div>
-        <div class="ortsfilter_right">
-              <select name="stadt" id="stadt">
-                  <option value="Berlin">Berlin</option>
-                  <option value="Bielefeld">Bielefeld</option>
-                  <option value="Bochum">Bochum</option>
-                  <option value="Bremen">Bremen</option>
-                  <option value="Dortmund">Dortmund</option>
-                  <option value="Dresden">Dresden</option>
-                  <option value="Freiburg">Freiburg</option>
-                  <option value="Hamburg">Hamburg</option>
-                  <option value="Koeln">Koeln</option>
-                  <option value="Leipzig">Leipzig</option>
-                  <option value="Muenchen">Muenchen</option>
-                  <option value="Nuernberg">Nuernberg</option>
-                  <option value="Paderborn">Paderborn</option>
-                  <option value="Rohstock">Rohstock</option>
-              </select>
-            </div>
+        <select class= "ortsfilter_right" name="stadt" id="stadt">
+            <option value="Hamburg"> <?php if ($filter['stadt'] === 'Hamburg') echo 'selected' ?>Hamburg</option>
+            <option value="Berlin"><?php if ($filter['stadt'] === 'Berlin') echo 'selected' ?>Berlin</option>
+            <option value="Bielefeld"><?php if ($filter['stadt'] === 'Bielefeld') echo 'selected' ?>Bielefeld</option>
+            <option value="Bochum"><?php if ($filter['stadt'] === 'Bochum') echo 'selected' ?>Bochum</option>
+            <option value="Bremen"><?php if ($filter['stadt'] === 'Bremen') echo 'selected' ?>Bremen</option>
+            <option value="Dortmund"><?php if ($filter['stadt'] === 'Dortmund') echo 'selected' ?>Dortmund</option>
+            <option value="Dresden"><?php if ($filter['stadt'] === 'Dresden') echo 'selected' ?>Dresden</option>
+            <option value="Freiburg"><?php if ($filter['stadt'] === 'Freiburg') echo 'selected' ?>Freiburg</option>
+            <option value="Köln"><?php if ($filter['stadt'] === 'Köln') echo 'selected' ?>Köln</option>
+            <option value="Leipzig"><?php if ($filter['stadt'] === 'Leipzig') echo 'selected' ?>Leipzig</option>
+            <option value="München"><?php if ($filter['stadt'] === 'München') echo 'selected' ?>München</option>
+            <option value="Nürnberg"><?php if ($filter['stadt'] === 'Nürnberg') echo 'selected' ?>Nürnberg</option>
+            <option value="Paderborn"><?php if ($filter['stadt'] === 'Paderborn') echo 'selected' ?>Paderborn</option>
+            <option value="Rohstock"><?php if ($filter['stadt'] === 'Rohstock') echo 'selected' ?>Rohstock</option>
+      </select>
       </div>
 
       <div class="abstandhalter2">
@@ -61,22 +106,15 @@
         </div>
 
         <div class="kalender_right">
-          <form>
-            <div class="kalender_startdatum">
-                <input type="text" placeholder: "Startdatum">
-            </div>
-          </form>
 
-        <div class="bis"> bis
+          <input class="kalender_startdatum" type="date" id="start" value="<?= $filter['start'] ?>">
+
+          <div class="bis"> bis
+          </div>
+
+          <input class="kalender_enddatum" type="date" id="ende" value="<?= $filter['ende'] ?>">
+
         </div>
-
-          <form>
-            <div class="kalender_enddatum">
-                <input type="text" placeholder: "Enddatum">
-            </div>
-          </form>
-        </div>
-
       </div>
 
       <!-- Linie zur optischen Abtrennung der Filter auf der Website -->
@@ -87,6 +125,8 @@
       <div class="abstandhalter2">
       </div>
 
+      <!-- Filterung auf die Autokathegorien -->
+      <!-- Zuerst symbolische Icons-->
       <div class="icons_modelle_box">
 
           <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon1_coupe.png" >
@@ -101,15 +141,15 @@
           <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon4_mehrsitzer.png" >
           </div>
 
-          <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon1_coupe.png" >
+          <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon8_cabrio.png" >
           </div>
 
-          <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon1_coupe.png" >
+          <div class = "icons_modelle"> <img src="Bilder/Produktuebersichtseite/icon9_combi.png" >
           </div>
-
 
       </div>
 
+      <!-- Kathegorie Bezeichnungen -->
       <div class="text_modelle_box">
 
         <div class = "text_modelle"> Coupe
@@ -127,6 +167,26 @@
 
       </div>
 
+      <div class="abstandhalter2">
+      </div>
+
+      <!-- Checkboxen für die Automodelle-->
+      <div class="text_modelle_box">
+
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Coupé">
+        </div>
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Limosine">
+        </div>
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="SUV">
+        </div>
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Mehrsitzer">
+        </div>
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Cabrio" >
+        </div>
+        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Combi">
+        </div>
+      </div>
+
       <!-- Linie zur optischen Abtrennung der Filter auf der Website -->
       <br>
       <div class="linie"> </div>
@@ -134,8 +194,7 @@
       <div class="abstandhalter2">
       </div>
 
-      <!-- Alle weiteren Filter werden hier in Zweierpaaren nebeneinander untereinander aufgereiht.
-      Da allerdings unterschiedliche Icons in die divs geladen werden wir hier kein php verwendet. -->
+      <!-- Alle weiteren Filter werden hier in Zweierpaaren nebeneinander untereinander aufgereiht-->
       <div class="ueberschrift_filter_box">
         <div class = "text_filter"> Hersteller
         </div>
@@ -144,18 +203,20 @@
       </div>
 
       <div class="allgemeine_filter_box">
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
-        </div>
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
-        </div>
+
+        <select class= "filter_inhalt" name="hersteller" id="hersteller">
+            <option value="Alle"> <?php if ($filter['hersteller'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
+        <select class= "filter_inhalt" name="sitze" id="sitze">
+            <option value="Alle"> <?php if ($filter['sitze'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
       </div>
 
       <div class="abstandhalter">
       </div>
+
 
       <div class="ueberschrift_filter_box">
         <div class = "text_filter"> Schaltung
@@ -165,14 +226,15 @@
       </div>
 
       <div class="allgemeine_filter_box">
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
-        </div>
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
-        </div>
+
+        <select class= "filter_inhalt" name="schaltung" id="schaltung">
+            <option value="Alle"> <?php if ($filter['schaltung'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
+        <select class= "filter_inhalt" name="tueren" id="tueren">
+            <option value="Alle"> <?php if ($filter['tueren'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
       </div>
 
       <div class="abstandhalter">
@@ -186,14 +248,39 @@
       </div>
 
       <div class="allgemeine_filter_box">
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
+
+        <select class= "filter_inhalt" name="motor" id="motor">
+            <option value="Alle"> <?php if ($filter['motor'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
+        <select class= "filter_inhalt" name="mindestalter" id="mindestalter">
+            <option value="Alle"> <?php if ($filter['mindestalter'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
+      </div>
+
+      <div class="abstandhalter">
+      </div>
+
+      <div class="ueberschrift_filter_box">
+        <div class = "text_filter"> Antrieb
         </div>
-        <div class = "filter_inhalt">
-          <div class = "pfeil">
-          </div>
+        <div class = "text_filter"> Preis bis
         </div>
+      </div>
+
+      <div class="allgemeine_filter_box">
+
+        <select class= "filter_inhalt" name="antrieb" id="antrieb">
+            <option value="Alle"> <?php if ($filter['antrieb'] === 'Alle') echo 'selected' ?>Alle</option>
+            <option value="Elektro"> <?php if ($filter['antrieb'] === 'Electric') echo 'selected' ?>Elektro</option>
+            <option value="Verbrenner"> <?php if ($filter['antrieb'] === 'Combuster') echo 'selected' ?>Verbrenner</option>
+        </select>
+
+        <select class= "filter_inhalt" name="preis" id="preis">
+            <option value="Alle"> <?php if ($filter['preis'] === 'Alle') echo 'selected' ?>Alle</option>
+        </select>
+
       </div>
 
       <!-- Linie zur optischen Abtrennung der Filter auf der Website -->
@@ -201,18 +288,16 @@
       <div class="linie"> </div>
       <br>
 
-      <!-- Klima und GPS -->
+      <!-- Klima und GPS Schalter -->
       <div class="allgemeine_filter_box">
 
         <div class = "filter_gps_klima">Klima</div>
-
         <label class="toggle" for="klima">
-          <input class="toggle__input" name="" type="checkbox" id="klima">
+          <input class="toggle__input" name="" type="checkbox" id="klima" value= "1" <?php if ($filter['klima'] === '1') echo 'checked' ?>>
           <div class="toggle__fill"></div>
         </label>
 
         <div class = "filter_gps_klima">GPS</div>
-
         <label class="toggle" for="gps">
           <input class="toggle__input" name="" type="checkbox" id="gps">
           <div class="toggle__fill"></div>
@@ -222,23 +307,51 @@
 
     </div>
 
+    <br>
+
+<!-- Filter Eingaben werden abgeschickt-->
+
+<div class ="lets_go">
+<input type="submit" class="absenden" value="Let's Go">
+</div>
+
+<!-- Das Form und der Filterkasten wird geschlossen -->
+  </form>
   </div>
 
 </div>
 
-<!-- Auflistung Automodelle -->
 
-<?php for ($i=0; $i < 16; $i++){
+
+
+
+
+
+
+<!-- Auflistung der gefilterten Automodelle, zum Start: Hamburg + 2 Tage-->
+
+<?php for ($i=0; $i < 2; $i++){
     ?>
 
+<!-- Unterteilung in Viererreihen-->
 <div class="erster_Paragraph">
 
   <?php for ($j=0; $j < 4; $j++){
       ?>
   <div class = "autos">
+
+  <!-- Marke + Name + ggf. Name Erweiterung-->
   <h1> 1er BMW </h1>
+  <br><br>
+
+  <!-- Richtiges Bild (nach Autotyp laden)-->
+  <img src="Bilder/Produktuebersichtseite/coupe.png">
+  <br><br>
+
+  <!-- Preis-->
   <p> ab 98.66 Euro / Tag </p>
   </div>
+
   <?php }
   ?>
 
@@ -247,17 +360,35 @@
 <?php }
   ?>
 
-  <!-- footer /-->
-  <div class="footer">
-    <div class="socials">Our Socials</div>
-    <a href="haha"><img src="Bilder/Footer/Instagram.png"
-    style="width: 32px; height: 32px;display: block;margin-left:46%;position:absolute;top: 45%"></a>
-    <a href="haha"><img src="Bilder/Footer/icons8-facebook-25.png"
-    style="width: 50px; height: 50px;display: block;margin-left:48.5%;position:absolute;top: 42%"></a>
-    <a href="haha"><img src="Bilder/Footer/icons8-twitter-24.png"
-    style="width: 32px; height: 32px;display: block;margin-left:52.5%;position:absolute;top: 45%"></a>
-    <div class="AGB"><a href="haha">AGB</a>   |   <a href="haha">Impressum</a>   |   <a href="haha">Datenschutz</a></div>
-  </div>
+
+
+  <!-- Footer /-->
+
+      <div class="footer">
+          <div class="oft_besucht"><h4>Oft Besucht</h4></div>
+            <div class="footer_startseite">
+            <a href="Startseite.html">Startseite</a></div>
+            <div class="footer_cars">
+            <a href="Produktuebersichtseite.html">Cars</a></div>
+            <div class="footer_cities">
+            <a href="Cities.html">Cities</a>
+          </div>
+        <div class="legal"><h4>Legal</h4>
+          <div class="footer_datenschutz">
+            <a href="#">Datenschutz</a></div>
+          <div class="footer_agb">
+            <a href="#">AGB & Rechtliches</a></div>
+          <div class="footer_impressum">
+            <a href="#">Impressum</a></div>
+        </div>
+        <div class="about"><h4>About us</h4></div>
+          <div class="footer_team">
+            <a href="Teamseite_Henry.php">Das Team</a></div>
+        <div class="copyright">Copyright 2022</div>
+          <a href="haha"><img src="Bilder/Footer/instagram.png" class="instagram"></a>
+          <a href="haha"><img src="Bilder/Footer/facebook.png" class="facebook"></a>
+          <a href="haha"><img src="Bilder/Footer/twitter.png" class="twitter"></a>
+      </div>
 </body>
 
 </html>
