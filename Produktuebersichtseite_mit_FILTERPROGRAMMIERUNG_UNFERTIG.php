@@ -29,9 +29,11 @@
 
   <!-- Datenbank Laden-->
   <?php
-        include('_db_team.php');
+        include('db_Log.php');
         $pdo = dbConnect();
-        include 'P_Ausgelagert.php';
+        // include 'P_Ausgelagert.php';
+
+        print_r($_POST);
         ?>
 </head>
 
@@ -48,10 +50,14 @@
     // Zu Beginn werden alle Filterkriterien als Variablen angelegt.
     // Alle Variablen mit Ausnahme der Stadt und des Zeitraum bleiben unbefüllt
     // Als Stadt wird zu Beginn wie gefordert Hamburg und als Zeitraum heute und heute + 2 Tage genommen.
+    $city = (isset($_REQUEST['city']) && !empty($_REQUEST['city'])) ? $_REQUEST['city']:'';
+    $Abholdatum = (isset($_REQUEST['Abholdatum']) && !empty($_REQUEST['Abholdatum'])) ? $_REQUEST['Abholdatum']:'';
+    $Rückgabedatum = (isset($_REQUEST['Rückgabedatum']) && !empty($_REQUEST['Rückgabedatum'])) ? $_REQUEST['Rückgabedatum']:'';
+
     $stadt = (isset($_REQUEST['stadt']) && !empty($_REQUEST['stadt'])) ? $_REQUEST['stadt'] : 'Hamburg';
     $start = (isset($_REQUEST['start']) && !empty($_REQUEST['start'])) ? $_REQUEST['start'] : date('Y-m-d');
     $ende = (isset($_REQUEST['ende']) && !empty($_REQUEST['ende'])) ? $_REQUEST['ende'] : date('Y-m-d', strtotime("+2 days"));
-    $typ = (isset($_REQUEST['typ']) && !empty($_REQUEST['typ'])) ? $_REQUEST['typ'] : null;
+    $typ = (isset($_REQUEST['type']) && !empty($_REQUEST['type'])) ? $_REQUEST['type'] : null;
     $hersteller = (isset($_REQUEST['hersteller']) && !empty($_REQUEST['hersteller'])) ? $_REQUEST['hersteller'] : null;
     $sitze = (isset($_REQUEST['sitze']) && !empty($_REQUEST['sitze'])) ? $_REQUEST['sitze'] : null;
     $schaltung = (isset($_REQUEST['schaltung']) && !empty($_REQUEST['schaltung'])) ? $_REQUEST['schaltung'] : null;
@@ -75,7 +81,7 @@
       'stadt' => $stadt,
       'start' => $start,
       'ende' => $ende,
-      'typ' => $typ,
+      'type' => $typ,
       'hersteller' => $hersteller,
       'sitze' => $sitze,
       'schaltung' => $schaltung,
@@ -109,7 +115,7 @@
       if ($absenden === 'SUCHEN') {
           $_SESSION['filter'] = [
             //Alle Variablen außer Stadt und Datum werden zurückgesetzt.
-            'typ' => "",
+            'type' => "",
             'hersteller' => "",
             'sitze' => "",
             'schaltung' => "",
@@ -136,7 +142,7 @@
           'stadt' => 'Hamburg',
           'start' => date('Y-m-d'),
           'ende' => date('Y-m-d', strtotime("+2 days")),
-          'typ' => "",
+          'type' => "",
           'hersteller' => "",
           'sitze' => "",
           'schaltung' => "",
@@ -160,7 +166,7 @@
           'stadt' => $stadt,
           'start' => $start,
           'ende' => $ende,
-          'typ' => $typ,
+          'type' => $typ,
           'hersteller' => $hersteller,
           'sitze' => $sitze,
           'schaltung' => $schaltung,
@@ -183,7 +189,7 @@
       else if ($absenden === 'Filter und Sortierung zurücksetzen.'){
         $_SESSION['filter'] = [
           //Alle Variablen außer Stadt und Datum werden zurückgesetzt.
-          'typ' => "",
+          'type' => "",
           'hersteller' => "",
           'sitze' => "",
           'schaltung' => "",
@@ -216,7 +222,6 @@
         <a href="Produktuebersichtseite.php">Cars</a>
         <a href="Cities.php">Cities</a>
         <a href="Meine_Buchungen.html">Meine Buchungen</a>
-        <a href="login" class="icon" ><img src="Bilder/Homepage/Icon-Login.png"></a>
       </div>
     </div>
 
@@ -237,22 +242,22 @@
       <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
       <!-- Filter auf die Stadt mits Icon davor -->
       <div class="icons">
-        <div class="ortsfilter_left"> </div>
+        <div class="ortsfilter_left"></div>
         <select class= "ortsfilter_right" name="stadt" id="stadt">
-            <option value="Hamburg" <?php if ($_SESSION['filter']['stadt'] === 'Hamburg') echo 'selected' ?>>Hamburg </option>
-            <option value="Berlin" <?php if ($_SESSION['filter']['stadt'] === 'Berlin') echo 'selected' ?>>Berlin </option>
-            <option value="Bielefeld" <?php if ($_SESSION['filter']['stadt'] === 'Bielefeld') echo 'selected'?>>Bielefeld </option>
-            <option value="Bochum" <?php if ($_SESSION['filter']['stadt'] === 'Bochum') echo 'selected' ?> > Bochum </option>
-            <option value="Bremen" <?php if ($_SESSION['filter']['stadt'] === 'Bremen') echo 'selected' ?>>Bremen</option>
-            <option value="Dortmund" <?php if ($_SESSION['filter']['stadt'] === 'Dortmund') echo 'selected' ?>>Dortmund</option>
-            <option value="Dresden" <?php if ($_SESSION['filter']['stadt'] === 'Dresden') echo 'selected' ?>>Dresden</option>
-            <option value="Freiburg" <?php if ($_SESSION['filter']['stadt'] === 'Freiburg') echo 'selected' ?>>Freiburg</option>
-            <option value="Köln" <?php if ($_SESSION['filter']['stadt'] === 'Köln') echo 'selected' ?>>Köln</option>
-            <option value="Leipzig" <?php if ($_SESSION['filter']['stadt'] === 'Leipzig') echo 'selected' ?>>Leipzig</option>
-            <option value="München" <?php if ($_SESSION['filter']['stadt'] === 'München') echo 'selected' ?>>München</option>
-            <option value="Nürnberg" <?php if ($_SESSION['filter']['stadt'] === 'Nürnberg') echo 'selected' ?>>Nürnberg</option>
-            <option value="Paderborn" <?php if ($_SESSION['filter']['stadt'] === 'Paderborn') echo 'selected' ?>>Paderborn</option>
-            <option value="Rohstock" <?php if ($_SESSION['filter']['stadt'] === 'Rohstock') echo 'selected' ?>>Rohstock</option>
+            <option value="Hamburg">Hamburg</option>
+            <option value="Berlin" <?php echo ($city=='Berlin') ? 'selected':''; ?>>Berlin </option>
+            <option value="Bielefeld" <?php echo ($city=='Bielefeld') ? 'selected':''; ?>>Bielefeld </option>
+            <option value="Bochum" <?php echo ($city=='Bochum') ? 'selected':''; ?>> Bochum </option>
+            <option value="Bremen" <?php echo ($city=='Bremen') ? 'selected':''; ?>>Bremen</option>
+            <option value="Dortmund" <?php echo ($city=='Dortmund') ? 'selected':''; ?>>Dortmund</option>
+            <option value="Dresden" <?php echo ($city=='Dresden') ? 'selected':''; ?>>Dresden</option>
+            <option value="Freiburg" <?php echo ($city=='Freiburg') ? 'selected':''; ?>>Freiburg</option>
+            <option value="Köln" <?php echo ($city=='Köln') ? 'selected':''; ?>>Köln</option>
+            <option value="Leipzig" <?php echo ($city=='Leipzig') ? 'selected':''; ?>>Leipzig</option>
+            <option value="München" <?php echo ($city=='München') ? 'selected':''; ?>>München</option>
+            <option value="Nürnberg" <?php echo ($city=='Nürnberg') ? 'selected':''; ?>>Nürnberg</option>
+            <option value="Paderborn" <?php echo ($city=='Paderborn') ? 'selected':''; ?>>Paderborn</option>
+            <option value="Rostock" <?php echo ($city=='Rostock') ? 'selected':''; ?>>Rohstock</option>
             <?php echo $_SESSION['filter']['stadt']; ?>
       </select>
 
@@ -266,11 +271,11 @@
 
         <div class="kalender_left">
         </div>
-
+          <?php $date = strtotime("+2 day", time()); ?>
         <div class="kalender_right">
-          <input class="kalender_startdatum" name = start type="date" value="<?= $_SESSION['filter']['start'] ?>">
+          <input class="kalender_startdatum" name = start type="date" value="<?php echo ($Abholdatum!='') ? $Abholdatum: date('Y-m-d'); ?>">
           <div class="bis"> bis </div>
-          <input class="kalender_enddatum" name = ende type="date" value="<?= $_SESSION['filter']['ende'] ?>" min="<?=$_SESSION['filter']['start'] ?>">
+          <input class="kalender_enddatum" name = ende type="date" value="<?php echo ($Rückgabedatum!='') ? $Rückgabedatum: date('Y-m-d', $date);?>">
 
         </div>
       </div>
@@ -296,7 +301,7 @@
       <!-- Kathegorie Bezeichnungen -->
       <div class="text_modelle_box">
         <div class = "text_modelle"> Coupe </div>
-        <div class = "text_modelle"> Limosinen </div>
+        <div class = "text_modelle"> Limousinen </div>
         <div class = "text_modelle"> SUVs </div>
         <div class = "text_modelle"> Mehrsitzer </div>
         <div class = "text_modelle"> Cabrio </div>
@@ -309,12 +314,12 @@
       <!-- Checkboxen für die Automodelle-->
       <div class="text_modelle_box">
 
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Coupé"></div>
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Limosine"></div>
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="SUV"></div>
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Mehrsitzer"></div>
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Cabrio" ></div>
-        <div class = "text_modelle"> <input class = "c_box" type="checkbox" name="type" id="Combi"></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="1" id="Coupe"></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="2" id="Limousine"></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="3" id="SUV"></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="4" id="Mehrsitzer"></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="5" id="Cabrio" ></div>
+        <div class = "text_modelle"> <input class = "c_box" type="radio" name="type" value="6" id="Combi"></div>
       </div>
 
       <!-- Linie zur optischen Abtrennung der Filter auf der Website -->
@@ -462,13 +467,13 @@
 
         <div class = "filter_gps_klima">Klima</div>
         <label class="toggle" for="klima">
-          <input class="toggle__input" name="" type="checkbox" id="klima" <?php if ($_SESSION ['filter']['klima'] === '1') echo 'checked' ?>>
+          <input class="toggle__input" name="" type="radio" id="klima" <?php if ($_SESSION ['filter']['klima'] === '1') echo 'checked' ?>>
           <div class="toggle__fill"></div>
         </label>
 
         <div class = "filter_gps_klima">GPS</div>
         <label class="toggle" for="gps">
-          <input class="toggle__input" name="" type="checkbox" id="gps" <?php if ($_SESSION ['filter']['gps'] === '1') echo 'checked' ?>>
+          <input class="toggle__input" name="" type="radio" id="gps" <?php if ($_SESSION ['filter']['gps'] === '1') echo 'checked' ?>>
           <div class="toggle__fill"></div>
         </label>
 
@@ -541,45 +546,45 @@ if(!empty($_SESSION['gefilterte_autos'])){
 
   //Wenn Daten in dem Array liegen müssen wir diese mit der Datenbank verknüpfen.
 
-  // $sql = "SELECT `location_name` FROM `location`";
+  $sql = "SELECT `location_name` FROM `location`";
 
-  $locationSQL = ($_SESSION['filter']['stadt'] == "")? '': "location.location_name = '".$_SESSION['filter']['stadt']."'";
+  $locationSQL = ($_SESSION['filter']['stadt'] == "")? '': "`location`.`location_name` = '".$_SESSION['filter']['stadt']."'";
   $startSQL = ($_SESSION['filter']['start'] == "") ? '' : " '".$_SESSION['filter']['start']."'";
   $endSQL = ($_SESSION['filter']['ende'] == "")    ? '' : " '".$_SESSION['filter']['ende']."'";
-  $vendorSQL = ($_SESSION['filter']['hersteller'] == "")          ? '' : "AND vendor.vendor_name = '".$_SESSION['filter']['hersteller']."'";
-  $driveSQL = ($_SESSION['filter']['antrieb'] == "")              ? '' : "AND model.drive = '".$_SESSION['filter']['antrieb']."'";
-  $gearSQL = ($_SESSION['filter']['schaltung'] == "")              ? '' : "AND model.gear = '".$_SESSION['filter']['schaltung']."'";
-  $gpsSQL = ($_SESSION['filter']['gps'] == "")                    ? '' : "AND model.gps = ".$_SESSION['filter']['gps'];
-  $typeSQL = ($_SESSION['filter']['typ'] == "")                   ? '' : "AND model.type_name = '".$_SESSION['filter']['typ']."'";
-  $seatsSQL = ($_SESSION['filter']['sitze'] == "")                ? '' : "AND model.seats = ".$_SESSION['filter']['sitze'];
-  $doorsSQL = ($_SESSION['filter']['tueren'] == "")                ? '' : "AND model.doors = ".$_SESSION['filter']['tueren'];
-  $air_conditionSQL = ($_SESSION['filter']['klima'] == "")        ? '' : "AND model.air_condition = ".$_SESSION['filter']['klima'];
-  $ageSQL = ($_SESSION['filter']['mindestalter'] == "")                  ? '' : "AND model.min_age <='".$_SESSION['filter']['mindestalter']."'";
-  $priceSQL = ($_SESSION['filter']['preis'] == "")                ? '' : "AND model.price <='".$_SESSION['filter']['preis']."'";
-  $sortSQL = ($_SESSION['filter']['sortieren'] == "")            ? '' : "ORDER BY ".$_SESSION['filter']['sortieren'];
+  $vendorSQL = ($_SESSION['filter']['hersteller'] == "")          ? '' : "AND `vendor`.`vendor_name` = '".$_SESSION['filter']['hersteller']."'";
+  $driveSQL = ($_SESSION['filter']['antrieb'] == "")              ? '' : "AND `model`.`drive` = '".$_SESSION['filter']['antrieb']."'";
+  $gearSQL = ($_SESSION['filter']['schaltung'] == "")              ? '' : "AND `model`.`gear` = '".$_SESSION['filter']['schaltung']."'";
+  $gpsSQL = ($_SESSION['filter']['gps'] == "")                    ? '' : "AND `model`.`gps` = ".$_SESSION['filter']['gps'];
+  $typeSQL = ($_SESSION['filter']['type'] == "")                   ? '' : "AND `type`.`type_name` = '".$_SESSION['filter']['type']."'";
+  $seatsSQL = ($_SESSION['filter']['sitze'] == "")                ? '' : "AND `model`.`seats` = ".$_SESSION['filter']['sitze'];
+  $doorsSQL = ($_SESSION['filter']['tueren'] == "")                ? '' : "AND `model`.`doors` = ".$_SESSION['filter']['tueren'];
+  $air_conditionSQL = ($_SESSION['filter']['klima'] == "")        ? '' : "AND `model`.`air_condition` = ".$_SESSION['filter']['klima'];
+  $ageSQL = ($_SESSION['filter']['mindestalter'] == "")                  ? '' : "AND `model`.`min_age` <='".$_SESSION['filter']['mindestalter']."'";
+  $priceSQL = ($_SESSION['filter']['preis'] == "")                ? '' : "AND `model`.`price` <='".$_SESSION['filter']['preis']."'";
+  $sortSQL = ($_SESSION['filter']['sortieren'] == "")            ? '' : "ORDER BY DESC";
 
-  $sql = "SELECT Count(car.car_id) AS 'anzahl_ergebnisse',
-        car.car_id AS 'car_id',
-        location.location_name AS 'stadt',
-        type.type_id AS 'typ',
-        vendor.vendor_name AS 'hersteller',
-        name.name AS 'name',
-        model.gear AS 'schaltung',
-        model.drive AS 'antrieb',
-        model.seats AS 'sitze',
-        model.doors AS 'tueren',
-        model.trunk AS 'kofferraumplatz',
-        model.air_condition AS 'klima',
-        model.gps AS 'gps',
-        model.min_age AS 'mindestalter',
-        model.price AS 'preis',
-        model.img_file_name AS 'bild'
-        FROM model
-        JOIN car ON car.model_id = model.model_id
-        JOIN location ON car.location_id = location.location_id
-        JOIN type ON model.type_id = type.type_id
-        JOIN name ON model.name_id = name.name_id
-        JOIN vendor ON model.vendor_id = vendor.vendor_id
+  $sql = "SELECT
+        `car`.`car_id` AS `car_id`,
+        `location`.`location_name` AS `stadt`,
+        `type`.`type_id` AS `type`,
+        `vendor`.`vendor_name` AS `hersteller`,
+        `name`.`name` AS `name`,
+        `model`.`gear` AS `schaltung`,
+        `model`.`drive` AS `antrieb`,
+        `model`.`seats` AS `sitze`,
+        `model`.`doors` AS `tueren`,
+        `model`.`trunk` AS `kofferraumplatz`,
+        `model`.`air_condition` AS `klima`,
+        `model`.`gps` AS `gps`,
+        `model`.`min_age` AS `mindestalter`,
+        `model`.`price` AS `preis`,
+        `model`.`img_file_name` AS `bild`
+        FROM `model`
+        JOIN `car` ON `car`.`car_id` = `car`.`car_id`
+        JOIN `location` ON `car`.`location_id` = `location`.`location_id`
+        JOIN `type` ON `type`.`type_name` = `type`.`type_name`
+        JOIN `name` ON `model`.`name_id` = `name`.`name_id`
+        JOIN `vendor` ON `model`.`vendor_id` = `vendor`.`vendor_id`
         WHERE $locationSQL $vendorSQL $driveSQL $gearSQL $gpsSQL $typeSQL $seatsSQL $doorsSQL $air_conditionSQL $ageSQL $priceSQL";
 
   $stmt = $pdo->prepare($sql);
@@ -589,10 +594,6 @@ if(!empty($_SESSION['gefilterte_autos'])){
   print_r($result);
 
     } ?>
-
-
-
-
 
   <!-- Footer /-->
 
