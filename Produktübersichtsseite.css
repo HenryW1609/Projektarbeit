@@ -1,0 +1,745 @@
+
+/* Bild im Hintergrund als Aufmacher*/
+.filterleiste {
+  background-image: url(Bilder/Produktuebersichtseite/hintergrund.png);
+  width: 100%;
+  height: 780px;}
+
+.filter_box_umriss{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height:700px;}
+
+/* Grüne Umrissbox für die gesamte Filterleiste erstellen */
+.filter_box {
+  background-color: #40854F;
+  width: 80%;
+  height: 92%;
+  border-radius: 10px;
+  float: left;
+  text-align: center;}
+
+/* Hilfsbox für den Orts- / Zeit- Filter um das Design mit den Icons zu ermöglichen */
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 65px;}
+
+/* Icon vor dem Ortsfilter (links) */
+.ortsfilter_left{
+  background-image: url(Bilder/Produktuebersichtseite/icon_ort.png);
+  width: 10%;
+  height: 65px;
+  margin: auto;
+  float: left;}
+
+/* Ortsfilter (rechts) */
+.ortsfilter_right{
+  background-color: white;
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;font-size: 15px;
+  width: 80%;
+  height: 50px;
+  margin: auto;
+  }
+
+/* Icon vor dem Kalenderfilter (links) */
+.kalender_left{
+  background-image: url(Bilder/Produktuebersichtseite/icon_kalender.png);
+  width: 8.5%;
+  height: 50px;
+  margin: 0 auto;
+  float: left;}
+
+/* Gesamter Datumsbereich Kalenderfilter (rechts) */
+.kalender_right{
+  background-color: #40854F;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;}
+
+/* Eingabefeld für Startdatum */
+.kalender_startdatum {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  width: 40%;
+  height: 50px;}
+
+.bis{
+  width:10%;
+  height: 50px;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;}
+
+/* Eingabefeld für Enddatum */
+.kalender_enddatum {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  height: 50px;
+  width: 40%;}
+
+/* Hilfslinie zur optischen Abtrennung innerhalb des Filterkastens */
+.linie{
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid white;}
+
+/* Auto Typ Filtern: */
+
+/* Reihe für Icons Automodelle */
+.icons_modelle_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:10vh;}
+
+/* Reihe für Überschrift Automodelle */
+.text_modelle_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:2vh;}
+
+/* Icons Automodelle */
+  .icons_modelle {
+    display: flex;
+    justify-content: center;
+    align-items: bottom;
+    height:7vh;
+    width:100%;
+    background-color: #40854F;
+    border-radius: 20px;}
+
+/* Überschrift Automodelle */
+  .text_modelle {
+    height:2vh;
+    width:100%;
+    background-color: #40854F;
+    color: white;
+    float: right;
+    text-align: center;}
+
+/* Checkboxen zum Anklicken Automodelle */
+.c_box{
+  height:100%;
+  width:20%;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;}
+
+/* Wenn Checkbox zum Angeklickt */
+.c_box:checked{
+  background: #214429;
+  border: 1px solid white;}
+
+/* Kasten für immer 2 Filterboxen in einer Reihe */
+.allgemeine_filter_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 1;
+  height:4.1vh;}
+
+/* Filter */
+.filter_inhalt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:4.2vh;
+  width:40%;
+  margin: 5vh;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  float: right;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;font-size: 15px;}
+
+/* Hilfskasten Filterboxen Ueberschriften */
+.ueberschrift_filter_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3vh;}
+
+/* Filterboxen Ueberschriften */
+.text_filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:1vH;
+  width:40%;
+  margin: 5vh;
+  color: #FFFFFF;
+  float: right;
+  text-align: center;}
+
+/* GPS & Klimaanlage */
+.filter_gps_klima {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:4vh;
+  width:5%;
+  margin: 5vh;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  background-color: #40854F;
+  color: white;
+  float: left;}
+
+/* Umschalter bauen fuer GPS / KLIMA */
+.toggle {
+  display: flex;
+  align-items: center;
+  width: 9.5%;
+  height: 70px;
+  border-radius: 30px;
+  border-color: black;
+  cursor: pointer;}
+
+.toggle__input {
+  display: none;}
+
+/* Hintergrund vor anklicken*/
+.toggle__fill {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  background: #40854F;
+  transition: background 0.2s;
+  border: white 2px solid;}
+
+/* Hintergrundfarbe nach anklicken*/
+.toggle__input:checked ~ .toggle__fill {
+  background: white;}
+
+/* Kurser (Ball)*/
+  .toggle__fill:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 26px;
+    height: 26px;
+    background: #40854F;
+    border: white 2px solid;
+    border-radius: 30px;
+    transition: transform 0.2s;}
+
+/* Umlegen des Schalters*/
+  .toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(26px);}
+
+/* Abstandhalter für optische Optimierung (zwei verschiedene Größen) */
+.abstandhalter {
+  width: 100%;
+  height: 2px;}
+
+.abstandhalter2 {
+  width: 100%;
+  height: 5px;}
+
+.optische_trennung{
+  width: 300px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  top: 290px;
+  left: 660px;}
+
+.filter {
+  width: 40%;
+  height:50px;
+  color: white;
+  background-color: #214429;
+  float:left;}
+
+/* Suchen & Filter Buttons Design */
+.suchen_button {
+  width: 300px;
+  height: 40px;
+  color: #214429;
+  font-size: 15px;
+  position: absolute;
+  top: 150px;
+  left: 660px;
+  border-radius: 15px;
+  border: #214429 2px solid;}
+
+.zurücksetzen_button{
+  width: 300px;
+  height: 40px;
+  color: #214429;
+  font-size: 15px;
+  position: absolute;
+  top: 200px;
+  left: 660px;
+  border-radius: 15px;
+  border: #214429 2px solid;}
+
+.sortieren{
+  width: 300px;
+  height: 40px;
+  color: #214429;
+  font-size: 15px;
+  position: absolute;
+  top: 300px;
+  left: 660px;
+  border-radius: 15px;
+  border: #214429 2px solid;
+  text-align: center;
+  }
+
+.filtern_button{
+  width: 300px;
+  height: 40px;
+  color: #214429;
+  font-size: 15px;
+  position: absolute;
+  top: 350px;
+  left: 660px;
+  border-radius: 15px;
+  border: #214429 2px solid;}
+
+
+.filter_zuruecksetzen_button{
+    width: 300px;
+    height: 40px;
+    color: #214429;
+    font-size: 15px;
+    position: absolute;
+    top: 400px;
+    left: 660px;
+    border-radius: 15px;
+    border: #214429 2px solid;}
+
+.filter_button {
+    width: 200px;
+    height: 40px;
+    float: left;
+    position: absolute;
+    top: 300px;
+    left: 750px;
+    border-radius: 15px;}
+
+.absenden {color: #FFA149;
+  background-color: none;
+  font-size: 30px;
+  background-color: transparent;}
+
+/* Alle Automodelle aufgelistet */
+
+.content_Bereich {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:800px;}
+
+
+/* Produktübersichtseite: Ausgewählte Automodelle */
+/* Dieser div erscheint, wenn keine passenden Ergebnisse vorhanden sind.*/
+  .keine_ergebnisse{
+    height:400px;
+    width:100%;
+    background-color: #D9D9D9;
+    color: black;
+    text-align: center;
+    font-size: 30px;}
+
+  .smiley{
+    background-image: url(Bilder/Produktuebersichtseite/icon_smiley.png);
+    width: 300px;
+    height: 300px;
+    margin:auto;}
+
+  /* Dieser div erscheint, wenn noch keine Produkte gefiltert wurden sind.*/
+  .keine_vorfilterung{
+    height:700px;
+    width:100%;
+    background-color: #D9D9D9;
+    color: black;
+    text-align: center;
+    font-size: 30px;}
+
+
+  .bild_keine_vorfilterung{
+    background-image: url(Bilder/Produktuebersichtseite/bild_für_keine_suche.jpg);
+    width: 85%;
+    height: 600px;
+    margin:auto;
+  }
+
+
+
+/* Contentbereich für Produktausgabe*/
+
+/* Box für max. 4 Ergebnisse.*/
+  .ergebnisse1{
+      height:465px;
+      width:100%;
+      background-color: white;
+      color: black;
+      }
+
+/* Box für max. 8 Ergebnisse.*/
+  .ergebnisse2{
+      height:850px;
+      width:100%;
+      background-color: white;
+      color: black;
+    }
+
+
+/* Es folgen die gefilterten Automodelle .*/
+/* Da die Div Container sich nicht verschieben sollten, sollte nur 3 oder weniger Autos in einer.*/
+/* Reihe zu stande kommen, wurden die Autos einzeln und mit absoluten Positionen erstellt.*/
+  .auto0 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 930px;
+      left: 50px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+  .auto1 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 930px;
+      left: 400px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+  .auto2 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 930px;
+      left: 750px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+  .auto3 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 930px;
+      left: 1100px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+.auto4 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 1320px;
+      left: 50px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+.auto5 {
+      height:45vh;
+      width:20%;
+      position: absolute;
+      top: 1320px;
+      left: 400px;
+      background-color: #D9D9D9;
+      color:grey ;
+      border-width: 2px;
+      border-radius: 15px;
+      border-color: white;
+      border-style: solid;
+      text-align: center;}
+
+.auto6 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 1320px;
+    left: 750px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto7 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 1320px;
+    left: 1100px;
+    background-color: #D9D9D9;
+    color:grey;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+
+/* Autos auf Seite 2*/
+
+.auto8 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 160px;
+    left: 50px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto9 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 160px;
+    left: 400px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto10 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 160px;
+    left: 750px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto11 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 160px;
+    left: 1100px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto12 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 550px;
+    left: 50px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto13 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 550px;
+    left: 400px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+.auto14 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 550px;
+    left: 750px;
+    background-color: #D9D9D9;
+    color:grey ;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+  .auto15 {
+    height:45vh;
+    width:20%;
+    position: absolute;
+    top: 550px;
+    left: 1100px;
+    background-color: #D9D9D9;
+    color:grey;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;}
+
+
+
+/* Überschrift der Autoausgaben (name + name_extension)*/
+.autos_ueberschrift{
+  color:black;
+  font-family: 'Roboto', sans-serif;font-size: 25px;
+  font-style: bold;
+  }
+
+
+/* Seitenwechselbuttons */
+.S1 {
+  height:30px;
+  width:200px;
+  position: absolute;
+  top: 120px;
+  left: 50px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #40854F;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.S2 {
+  height:30px;
+  width:200px;
+  position: absolute;
+  top: 893px;
+  left: 1185px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #40854F;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.S3 {
+  height:30px;
+  width:200px;
+  position: absolute;
+  top: 120px;
+  left: 1185px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #40854F;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.zurueck{
+  height:30px;
+  width:200px;
+  position: absolute;
+  top: 550px;
+  left: 1185px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #40854F;
+  color: white;
+  font-family: 'Roboto', sans-serif;font-size: 20px;
+  font-style: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.S1:hover{
+  background-color: white;
+  border: #214429 2px solid;
+  color: #214429;
+   }
+
+.S2:hover{
+  background-color: white;
+  border: #214429 2px solid;
+  color: #214429;
+   }
+
+.S3:hover{
+   background-color: white;
+   border: #214429 2px solid;
+   color: #214429;
+      }
+
+.zurueck:hover{
+   background-color: white;
+   border: #214429 2px solid;
+   color: #214429;}
